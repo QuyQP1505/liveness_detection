@@ -6,7 +6,7 @@ import matplotlib
 matplotlib.use("Agg")
 
 # import the necessary packages
-from pyimagesearch.livenessnet import LivenessNet
+from livenessnet import LivenessNet
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -99,7 +99,7 @@ print(classification_report(testY.argmax(axis=1),
 
 # save the network to disk
 print("[INFO] serializing network to '{}'...".format(args["model"]))
-model.save(args["model"])
+model.save(args["model"], save_format="h5")
 
 # save the label encoder to disk
 f = open(args["le"], "wb")
@@ -111,8 +111,8 @@ plt.style.use("ggplot")
 plt.figure()
 plt.plot(np.arange(0, EPOCHS), H.history["loss"], label="train_loss")
 plt.plot(np.arange(0, EPOCHS), H.history["val_loss"], label="val_loss")
-plt.plot(np.arange(0, EPOCHS), H.history["acc"], label="train_acc")
-plt.plot(np.arange(0, EPOCHS), H.history["val_acc"], label="val_acc")
+plt.plot(np.arange(0, EPOCHS), H.history["accuracy"], label="train_acc")
+plt.plot(np.arange(0, EPOCHS), H.history["val_accuracy"], label="val_acc")
 plt.title("Training Loss and Accuracy on Dataset")
 plt.xlabel("Epoch #")
 plt.ylabel("Loss/Accuracy")
