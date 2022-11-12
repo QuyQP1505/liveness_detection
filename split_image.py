@@ -4,10 +4,10 @@ import os
 import cv2
 import shutil
 
-csv_path = r"D:\Github\Face-Liveness-Detection\data\lable_frames.csv"
-img_folder = r"D:\Github\Face-Liveness-Detection\data\frames"
-fake_img_folder = r"D:\Github\Face-Liveness-Detection\data\fake"
-real_img_folder = r"D:\Github\Face-Liveness-Detection\data\real"
+csv_path = "/content/drive/MyDrive/Liveness_detection/lable_frames.csv"
+img_folder = "/content/drive/MyDrive/Liveness_detection/frames"
+fake_img_folder = "/content/liveness_detection/data/fake"
+real_img_folder = "/content/liveness_detection/data/real"
 
 with open(csv_path, "r+") as f:
     lines = f.readlines()
